@@ -1,29 +1,23 @@
 package com.company.suites.stub;
 
-import com.company.framework.pageobjects.IndexPO;
-import com.company.suites.BaseTest;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-/**
- * Created by oleg on 6/27/17.
- */
+import com.company.framework.pageobjects.IndexPO;
+import com.company.suites.BaseTest;
+
+
 public abstract class AbstractSuiteTest extends BaseTest {
 
     protected IndexPO indexPO;
 
-    @BeforeClass
-    public void beforeClass() {
-        indexPO = new IndexPO(driver);
-    }
-
-    @BeforeMethod(alwaysRun = true)
+    @BeforeMethod
     public void beforeMethod() {
+        indexPO = new IndexPO(driver);
         driver.get(buildServerLink());
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterMethod
     public void afterMethod() {
         driver.manage().deleteAllCookies();
     }

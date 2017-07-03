@@ -5,9 +5,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-/**
- * Created by oleg on 6/14/17.
- */
 @Slf4j
 public class ImplTest extends AbstractSuiteTest {
 
@@ -20,8 +17,8 @@ public class ImplTest extends AbstractSuiteTest {
     }
 
     @Test(dataProvider = "searchInputData")
-    public void test(String searchInputData) {
+    public void testOne(String searchInputData) {
         indexPO.searchInGoogle(searchInputData);
-        log.info(driver.getCurrentUrl());
+        assertNotNull(driver.getCurrentUrl());
     }
 }

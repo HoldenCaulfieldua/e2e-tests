@@ -12,3 +12,7 @@ services:
       image: selenium/node-chrome
       links:
         - hub
+    phantomjs:
+      image: selenium/node-phantomjs
+      links:
+        - hub

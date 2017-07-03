@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * Created by oleg on 6/14/17.
- */
+
 public final class TestProperties extends Properties {
 
     private static TestProperties props = null;

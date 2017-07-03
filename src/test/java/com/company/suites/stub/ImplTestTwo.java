@@ -1,48 +1,39 @@
 package com.company.suites.stub;
 
-import io.qameta.allure.Issue;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.TmsLink;
-import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 public class ImplTestTwo extends AbstractSuiteTest {
 
-    @DataProvider(name = "searchInputDataTestTwo")
-    public Object[][] searchInputDataTestTwo() {
+    @DataProvider(name = "searchInputData")
+    public Object[][] searchInputData() {
         return new Object[][]{
                 {"http://www.seleniumhq.org/"},
                 {"https://www.apache.org/"}
         };
     }
 
-    @DataProvider(name = "searchInputDataTwoTestTwo")
-    public Object[][] searchInputDataTwoTestTwo() {
+    @DataProvider(name = "searchInputDataTwo")
+    public Object[][] searchInputDataTwo() {
         return new Object[][]{
                 {"https://www.apple.com/"},
                 {"https://www.swissquote.ch/"}
         };
     }
 
-    @Test(dataProvider = "searchInputDataTestTwo")
-    @Severity(SeverityLevel.NORMAL)
-    @TmsLink("TMS-LINK-123")
-    public void testTestTwo(String searchInputData) {
+    @Test(dataProvider = "searchInputData")
+    public void testTwo(String searchInputData) {
         indexPO.searchInGoogle(searchInputData);
-        log.info("Hello from testtesttwo!");
         assertNotNull(driver.getCurrentUrl(), driver.getCurrentUrl());
     }
 
-    @Test(dataProvider = "searchInputDataTwoTestTwo")
-    @Severity(SeverityLevel.TRIVIAL)
-    @Issue("JIRA-1234")
-    public void anotherTestTestTwo(String searchInputData) {
+    @Test(dataProvider = "searchInputDataTwo")
+    public void testThree(String searchInputData) {
         indexPO.searchInGoogle(searchInputData);
-        log.info("Hello from anotherTesttesttwo!");
-        assertNotNull(null, driver.getCurrentUrl());
+        assertNotNull(driver.getCurrentUrl());
     }
 }

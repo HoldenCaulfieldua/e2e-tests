@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="phantomjs" parallel="tests">
+	<test name="test-phantomjs">
+		<parameter name="browser" value="phantomjs"/>
+		<parameter name="platform" value="any"/>
+		<classes>
+			<class name="com.company.suites.stub.ImplTestTwo"/>
+			<class name="com.company.suites.stub.ImplTest"/>
+		</classes>
+	</test>
+</suite>
