@@ -1,7 +1,7 @@
 node {
     
         stage('Build') {
-            
+            print(pwd())
                 //sh 'mvnw -Dmaven.test.failure.ignore=true clean verify site'
             sh 'mvn clean verify'
         }
