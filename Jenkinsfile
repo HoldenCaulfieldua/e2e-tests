@@ -2,8 +2,8 @@ node {
     
         stage('Build') {
             
-                sh 'mvnw -Dmaven.test.failure.ignore=true clean verify site'
-            
+                //sh 'mvnw -Dmaven.test.failure.ignore=true clean verify site'
+            sh 'mvn clean verify'
         }
          stage('Report') {
                     
