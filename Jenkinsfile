@@ -1,5 +1,4 @@
 node {
-pipeline {
     stages {
         stage('Build') {
             steps {
@@ -22,5 +21,4 @@ pipeline {
                     color: 'danger', teamDomain: 'qameta', channel: 'allure', tokenCredentialId: 'allure-channel'
         }
     }
-}
 }
