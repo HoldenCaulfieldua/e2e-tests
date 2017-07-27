@@ -12,12 +12,3 @@
     
     println "Property: $selectedProperty"
     
-    // Change `job` value to your downstream job name
-    // Change `name` value to the name you gave the string parameter in your downstream job
-
- @DataBoundConstructor
-    public ChoiceParameterDefinition(String name, String choices, String description) {
-        super(name, description);
-        this.choices = Arrays.asList(choices.split(CHOICES_DELIMITER));
-        defaultValue = null;
-    }
