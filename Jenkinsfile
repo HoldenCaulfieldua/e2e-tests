@@ -1,6 +1,26 @@
-stage 'promotion'
-def userInput = input(
- id: 'userInput', message: 'Let\'s promote?', parameters: [
- [$class: 'TextParameterDefinition', defaultValue: 'uat', description: 'Environment', name: 'env']
-])
-echo ("Env: "+userInput)
+  // Change `url` value to your own
+    def inputParams=['test','report']    
+    
+    // Change `message` value to the message you want to display
+    // Change `description` value to the description you want
+    def selectedProperty = input( id: 'userInput', message: 'Choose action', 
+        parameters: [ [
+          $class: 'ChoiceParameterDefinition', 
+          choices: inputParams, 
+          description: 'Properties', 
+          name: 'prop'] ])
+    
+    println "Property: $selectedProperty"
+    
+    // Change `job` value to your downstream job name
+    // Change `name` value to the name you gave the string parameter in your downstream job
+
+====> JAVA
+https://github.com/jenkinsci/jenkins/blob/master/core/src/main/java/hudson/model/ChoiceParameterDefinition.java#L20
+
+ @DataBoundConstructor
+    public ChoiceParameterDefinition(String name, String choices, String description) {
+        super(name, description);
+        this.choices = Arrays.asList(choices.split(CHOICES_DELIMITER));
+        defaultValue = null;
+    }
