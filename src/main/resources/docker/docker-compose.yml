@@ -6,7 +6,7 @@ services:
     ports:
       - "4444:4444"
     volumes:
-      - "/home/oleg/selenoid/:/etc/selenoid/" # assumed current dir contains browsers.json
+      - "/etc/selenoid/:/etc/selenoid/" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       - MAX_INSTANCES=64

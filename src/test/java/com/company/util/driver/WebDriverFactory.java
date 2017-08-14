@@ -23,11 +23,11 @@ public class WebDriverFactory {
 		switch (browser) {
 			case "chrome":
 				desiredCapabilities = DesiredCapabilities.chrome();
-				desiredCapabilities.setVersion("59.0");
+				desiredCapabilities.setVersion("60.0");
 				break;
 			case "firefox":
 				desiredCapabilities = DesiredCapabilities.firefox();
-				desiredCapabilities.setVersion("53.0");
+				desiredCapabilities.setVersion("54.0");
 				break;
 			case "opera":
 				desiredCapabilities = DesiredCapabilities.operaBlink();
