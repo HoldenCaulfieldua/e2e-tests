@@ -33,9 +33,9 @@ public class ImplTestTwo extends AbstractSuiteTest {
     }
 
     @Test(dataProvider = "searchInputDataTwo")
-    public void testThree(String searchInputData) {
+    public void testThree(String searchInputDataTwo) {
         log.info("test three");
-        indexPO.searchInGoogle(searchInputData);
+        indexPO.searchInGoogle(searchInputDataTwo);
         assertNotNull(driver.getCurrentUrl());
     }
 }
