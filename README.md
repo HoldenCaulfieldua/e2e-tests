@@ -4,9 +4,11 @@
 
 Linux
 ```bash
-sh mvnw clean verify site
+sh mvnw clean install site
+sh mvnw io.qameta.allure:allure-maven:serve
 ```
 Windows
 ```bash
-mvnw.cmd clean verify site
+mvnw.cmd clean install site
+mvnw.cmd io.qameta.allure:allure-maven:serve
 ```
