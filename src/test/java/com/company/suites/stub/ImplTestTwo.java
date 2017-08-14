@@ -28,11 +28,13 @@ public class ImplTestTwo extends AbstractSuiteTest {
     @Test(dataProvider = "searchInputData")
     public void testTwo(String searchInputData) {
         indexPO.searchInGoogle(searchInputData);
+        log.info("test two");
         assertNotNull(driver.getCurrentUrl(), driver.getCurrentUrl());
     }
 
     @Test(dataProvider = "searchInputDataTwo")
     public void testThree(String searchInputData) {
+        log.info("test three");
         indexPO.searchInGoogle(searchInputData);
         assertNotNull(driver.getCurrentUrl());
     }

@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="suite">
-    <suite-files>
-        <suite-file path="chrome.xml"/>
-        <suite-file path="firefox.xml"/>
-        <suite-file path="phantomjs.xml"/>
-    </suite-files>
+<suite name="suite" parallel="tests" thread-count="3">
+    <test name="test-chrome">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="platform" value="any"/>
+        <classes>
+            <class name="com.company.suites.stub.ImplTestTwo"/>
+            <class name="com.company.suites.stub.ImplTest"/>
+        </classes>
+    </test>
+    <test name="test-firefox">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="platform" value="any"/>
+        <classes>
+            <class name="com.company.suites.stub.ImplTestTwo"/>
+            <class name="com.company.suites.stub.ImplTest"/>
+        </classes>
+    </test>
+    <test name="test-opera">
+        <parameter name="browser" value="opera"/>
+        <parameter name="platform" value="any"/>
+        <classes>
+            <class name="com.company.suites.stub.ImplTestTwo"/>
+            <class name="com.company.suites.stub.ImplTest"/>
+        </classes>
+    </test>
 </suite>

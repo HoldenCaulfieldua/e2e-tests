@@ -1,16 +1,17 @@
 package com.company.util.driver;
 
 import com.company.util.exceptions.UnsupportedBrowserException;
-
 import lombok.extern.slf4j.Slf4j;
-
+import org.apache.http.client.utils.URIBuilder;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.HashMap;
 
 @Slf4j
 public class WebDriverFactory {
@@ -22,12 +23,21 @@ public class WebDriverFactory {
 		switch (browser) {
 			case "chrome":
 				desiredCapabilities = DesiredCapabilities.chrome();
+				desiredCapabilities.setVersion("59.0");
 				break;
 			case "firefox":
 				desiredCapabilities = DesiredCapabilities.firefox();
+				desiredCapabilities.setVersion("53.0");
 				break;
-			case "phantomjs":
-				desiredCapabilities = DesiredCapabilities.phantomjs();
+			case "opera":
+				desiredCapabilities = DesiredCapabilities.operaBlink();
+				desiredCapabilities.setBrowserName("operablink");
+                desiredCapabilities.setCapability("operaOptions", new HashMap<String, Object>(){
+                    {
+                        put("binary", "/usr/bin/opera");
+                    }
+                });
+				desiredCapabilities.setVersion("47.0");
 				break;
 			default:
 				throw new UnsupportedBrowserException(browser + " browser is not supported yet");
@@ -54,12 +64,12 @@ public class WebDriverFactory {
 	}
 
 	private static synchronized URL buildUrl() throws MalformedURLException {
-		return new URL(new StringBuffer()
-				.append("http://")
-				.append("127.0.0.1")
-				.append(":")
-				.append("4444")
-				.append("/wd/hub")
-				.toString());
+		URIBuilder uriBuilder= new URIBuilder();
+		try {
+			return uriBuilder.setScheme("http").setHost("localhost").setPort(4444).setPath("/wd/hub").build().toURL();
+		} catch (URISyntaxException e) {
+			log.error(e.getMessage());
+			return null;
+		}
 	}
 }

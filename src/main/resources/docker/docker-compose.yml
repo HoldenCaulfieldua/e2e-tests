@@ -1,18 +1,20 @@
 version: '2'
 services:
-    hub:
-      image: selenium/hub
-      ports:
-        - "4444:4444"
-    firefox:
-      image: selenium/node-firefox
-      links:
-        - hub
-    chrome:
-      image: selenium/node-chrome
-      links:
-        - hub
-    phantomjs:
-      image: selenium/node-phantomjs
-      links:
-        - hub
+  selenoid:
+    image: "aerokube/selenoid"
+    network_mode: bridge
+    ports:
+      - "4444:4444"
+    volumes:
+      - "/home/oleg/selenoid/:/etc/selenoid/" # assumed current dir contains browsers.json
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - MAX_INSTANCES=64
+  selenoid-ui:
+    image: "aerokube/selenoid-ui"
+    network_mode: bridge
+    links:
+      - selenoid
+    ports:
+      - "8080:8080"
+    command: ["--selenoid-uri", "http://selenoid:4444"]

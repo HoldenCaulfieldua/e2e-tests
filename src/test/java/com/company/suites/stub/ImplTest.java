@@ -19,6 +19,7 @@ public class ImplTest extends AbstractSuiteTest {
     @Test(dataProvider = "searchInputData")
     public void testOne(String searchInputData) {
         indexPO.searchInGoogle(searchInputData);
+        log.info("test one");
         assertNotNull(driver.getCurrentUrl());
     }
 }
