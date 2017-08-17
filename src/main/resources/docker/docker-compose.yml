@@ -8,8 +8,6 @@ services:
     volumes:
       - "/etc/selenoid/:/etc/selenoid/" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
-    environment:
-      - MAX_INSTANCES=64
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge
