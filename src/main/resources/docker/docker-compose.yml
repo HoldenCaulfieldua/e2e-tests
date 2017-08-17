@@ -8,6 +8,7 @@ services:
     volumes:
       - "/etc/selenoid/:/etc/selenoid/" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
+    command: ["-limit", "20"]
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge
@@ -15,4 +16,4 @@ services:
       - selenoid
     ports:
       - "8080:8080"
-    command: ["--selenoid-uri", "http://selenoid:4444", "-limit", "20"]
+    command: ["--selenoid-uri", "http://selenoid:4444"]
