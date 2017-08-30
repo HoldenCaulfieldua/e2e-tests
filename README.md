@@ -1,5 +1,5 @@
-## Multithreaded e2e framework stub using TestNG
-
+## Multithreaded e2e framework stub using TestNG 
+https://travis-ci.org/Svitsky/e2e-tests.svg?branch=master
 ### This is a working multithreaded e2e framework stub using TestNG. To run execute the following:
 
 Linux
