@@ -10,4 +10,4 @@ services:
 
 install: true
 
-script: mvn clean install -V
+script: sh mvnw clean install -V
