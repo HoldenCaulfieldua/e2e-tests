@@ -10,4 +10,4 @@ services:
 
 install: true
 
-script: sh runme-before.sh && sh mvnw clean install -V
+script: sudo sh runme-before.sh && sh mvnw clean install -V
