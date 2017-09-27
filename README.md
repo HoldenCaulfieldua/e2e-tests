@@ -14,4 +14,4 @@ Windows
 mvnw.cmd clean install site
 mvnw.cmd io.qameta.allure:allure-maven:serve
 ```
-#### Make sure you have browsers.json is in your /etc/selenoid folder
+#### Make sure you have browsers.json in your /etc/selenoid folder
