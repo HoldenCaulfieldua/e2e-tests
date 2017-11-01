@@ -1,12 +1,16 @@
-parallel (
-        "linux" : {
-            node ("linux") {
+pipeline {
+    agent any
 
-            }
-        },
-        "windows" : {
-            node ("windows") {
-
+    stages {
+        stage('Build') {
+            steps {
+                echo 'mvn clean verify site'
             }
         }
-)
+        stage('Report') {
+            steps {
+                echo 'Reporting..'
+            }
+        }
+    }
+}
