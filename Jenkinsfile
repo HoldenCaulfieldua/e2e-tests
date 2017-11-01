@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean verify site'
+                ./mvnw clean verify site
             }
         }
         stage('Report') {
