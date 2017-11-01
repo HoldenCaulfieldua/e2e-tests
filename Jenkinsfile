@@ -4,8 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'chmod 777 .mvnw'
-                sh './mvnw clean verify site'
+                sh 'bash mvnw clean verify site'
             }
         }
         stage('Report') {
